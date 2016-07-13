@@ -1,0 +1,19 @@
+{
+    "name": "aziraphale/symfony-single-command-application",
+    "description": "Extension of Symfony's Console Application that simplifies creation of simple, single-command PHP CLI scripts",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Gillard",
+            "email": "andrew@lorddeath.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/console": "2.6"
+    },
+    "autoload": {
+        "psr-4": { "Aziraphale\\Symfony\\": "" }
+    }
+}
