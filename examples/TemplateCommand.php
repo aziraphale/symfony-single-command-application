@@ -26,18 +26,18 @@ class TemplateCommand extends Command
             ->setName('demo:greet')
             /** @todo SET DESCRIPTION */
             ->setDescription('Greet someone')
-            /** @todo SET ARGUMENTS */
-            ->addArgument(
-                'name',
-                InputArgument::OPTIONAL,
-                'Who do you want to greet?'
-            )
             /** @todo SET OPTIONS */
             ->addOption(
                'yell',
                null,
                InputOption::VALUE_NONE,
                'If set, the task will yell in uppercase letters'
+            )
+            /** @todo SET ARGUMENTS */
+            ->addArgument(
+                'name',
+                InputArgument::OPTIONAL,
+                'Who do you want to greet?'
             )
         ;
     }
