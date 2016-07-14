@@ -19,25 +19,38 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class TemplateCommand extends Command
 {
+    /** @todo SET APP VERSION */
+    // (or delete this constant if you don't want to use a version number)
+    const APP_VERSION = '1.0.0';
+
     protected function configure()
     {
         $this
-            /** @todo SET COMMAND NAME */
-            ->setName('demo:greet')
+            /** @todo SET APPLICATION NAME */
+            // Ordinarily this would set the name of the COMMAND, but that
+            //  makes little sense for a single-command application, so instead
+            //  the command name is extracted to be used as the name of the
+            //  application as a whole!
+            ->setName('My Example Console Application')
+
             /** @todo SET DESCRIPTION */
+            // The description is displayed under the "Help" section of the
+            //  text displayed when running the script and passing `--help`
             ->setDescription('Greet someone')
+
+            /** @todo SET ARGUMENTS */
+            ->addArgument(
+                'name',
+                InputArgument::OPTIONAL,
+                'Who do you want to greet?'
+            )
+
             /** @todo SET OPTIONS */
             ->addOption(
                'yell',
                null,
                InputOption::VALUE_NONE,
                'If set, the task will yell in uppercase letters'
-            )
-            /** @todo SET ARGUMENTS */
-            ->addArgument(
-                'name',
-                InputArgument::OPTIONAL,
-                'Who do you want to greet?'
             )
         ;
     }
