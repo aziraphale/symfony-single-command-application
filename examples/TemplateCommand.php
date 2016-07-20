@@ -38,6 +38,9 @@ class TemplateCommand extends Command
             //  text displayed when running the script and passing `--help`
             ->setDescription('Greet someone')
 
+            /** @todo SET PROCESS TITLE (only if this is a long-running process/daemon) */
+            ->setProcessTitle("My Example Application")
+
             /** @todo SET ARGUMENTS */
             ->addArgument(
                 'name',
@@ -61,8 +64,18 @@ class TemplateCommand extends Command
      *  command methods.
      *
      * This can be deleted if it is not required.
+     *
+     * From the parent Symfony docs:
+     *
+     *      Initializes the command just after the input has been validated.
+     *
+     *      This is mainly useful when a lot of commands extends one main command
+     *      where some things need to be initialized based on the input arguments and options.
+     *
+     *      @param InputInterface  $input  An InputInterface instance
+     *      @param OutputInterface $output An OutputInterface instance
      */
-    protected function initialize()
+    protected function initialize(InputInterface $input, OutputInterface $output)
     {
 
     }
@@ -74,9 +87,25 @@ class TemplateCommand extends Command
      *  where you can ask for missing options/arguments. After this command,
      *  missing options/arguments will result in an error.
      *
+     * Note that this is ONLY executed if the application is being run in an
+     *  "interactive" context (this means, amongst other things, that
+     *  interact() won't be called if this application has data piped to it by
+     *  the calling shell).
+     *
      * This can be deleted if it is not required.
+     *
+     * From the parent Symfony docs:
+     *
+     *      Interacts with the user.
+     *
+     *      This method is executed before the InputDefinition is validated.
+     *      This means that this is the only place where the command can
+     *      interactively ask for values of missing required arguments.
+     *
+     *      @param InputInterface  $input  An InputInterface instance
+     *      @param OutputInterface $output An OutputInterface instance
      */
-    protected function interact()
+    protected function interact(InputInterface $input, OutputInterface $output)
     {
 
     }
